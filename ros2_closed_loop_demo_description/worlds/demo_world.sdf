@@ -67,11 +67,6 @@
             <uri>model://closed_loop_demo</uri>
             <pose>0 0 2 0 0 0</pose>
         </include>
-        
-        <joint name="joint__world_base" type="fixed">
-            <parent>world</parent>
-            <child>closed_loop_demo_model::base_link</child>
-        </joint>
 
     </world>
 </sdf>
