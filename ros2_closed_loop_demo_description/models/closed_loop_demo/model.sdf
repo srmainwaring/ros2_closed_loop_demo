@@ -1,14 +1,41 @@
 <sdf version='1.9'>
+  <!--
+  Possible issues:
+    - inertial elements do not seem to be realisitic
+    - no damping on joints
+    - fixed joint stability
+    - physics constraints in detached joint
+    - dummy link has no mass or inertia
+  -->
+
   <model name='closed_loop_demo'>
+    <self_collide>0</self_collide>
 
     <!-- Define Links -->
 
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
+        <pose>0 0 0.035 0 0 0</pose>
         <mass>10</mass>
+        <inertia>
+          <ixx>0.008416667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.008416667</iyy>
+          <iyz>0</iyz>
+          <izz>0.016666667</izz>
+        </inertia>
       </inertial>
-      <visual name='base_link_visual'>
+      <!-- <collision name='collision'>
+        <pose>0 0 0.035 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.01</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <visual name='visual'>
         <pose>0 0 0.035 0 0 0</pose>
         <geometry>
           <box>
@@ -20,12 +47,29 @@
         </material>
       </visual>
     </link>
+
     <link name='link_0'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1</mass>
+        <inertia>
+          <ixx>0.0006</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0006</iyy>
+          <iyz>0</iyz>
+          <izz>0.0006</izz>
+        </inertia>
       </inertial>
-      <visual name='base_link_visual'>
+      <!-- <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.06 0.06 0.06</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <visual name='visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
@@ -37,12 +81,29 @@
         </material>
       </visual>
     </link>
+
     <link name='link_1'>
       <pose>0.25 0 0 0 0 0</pose>
       <inertial>
         <mass>1</mass>
+        <inertia>
+          <ixx>0.000416667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.021041667</iyy>
+          <iyz>0</iyz>
+          <izz>0.021041667</izz>
+        </inertia>
       </inertial>
-      <visual name='link_1_visual'>
+      <!-- <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <visual name='visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
@@ -54,12 +115,29 @@
         </material>
       </visual>
     </link>
+
     <link name='link_2'>
-    <inertial>
+      <inertial>
         <mass>1</mass>
+        <inertia>
+          <ixx>0.021041667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.021041667</iyy>
+          <iyz>0</iyz>
+          <izz>0.000416667</izz>
+        </inertia>
       </inertial>
       <pose>0.5 0 -0.25 0 0 0</pose>
-      <visual name='link_2_visual'>
+      <!-- <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.5</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <visual name='visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
@@ -73,11 +151,27 @@
     </link>
 
     <link name='link_3'>
-    <inertial>
+      <inertial>
         <mass>1</mass>
+        <inertia>
+          <ixx>0.021041667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.021041667</iyy>
+          <iyz>0</iyz>
+          <izz>0.000416667</izz>
+        </inertia>
       </inertial>
       <pose>0 0 -0.25 0 0 0</pose>
-      <visual name='link_3_visual'>
+      <!-- <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.5</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <visual name='visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
@@ -89,12 +183,37 @@
         </material>
       </visual>
     </link>
+
     <link name='link_4'>
-    <inertial>
+      <inertial>
         <mass>1</mass>
+        <inertia>
+          <ixx>0.000416667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.021041667</iyy>
+          <iyz>0</iyz>
+          <izz>0.021041667</izz>
+        </inertia>
       </inertial>
       <pose>0.25 0 -0.5 0 0 0</pose>
-      <visual name='link_4_visual'>
+      <!-- <collision name='collision1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <!-- <collision name='collision2'>
+        <pose>0.35 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <visual name='visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
@@ -105,7 +224,7 @@
           <diffuse>0 1 0.6 1</diffuse>
         </material>
       </visual>
-      <visual name='link_4_visual2'>
+      <visual name='visual2'>
         <pose>0.35 0 0 0 0 0</pose>
         <geometry>
           <box>
@@ -120,18 +239,22 @@
 
     <!-- Define Joints -->
 
-    <joint name='joint_D0' type='fixed'>
+    <joint name='joint_D0' type='revolute'>
       <child>link_0</child>
       <parent>base_link</parent>
       <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-2</lower>
-          <upper>2</upper>
+          <lower>0</lower>
+          <upper>0</upper>
         </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
+
     <joint name='joint_A0' type='revolute'>
       <child>link_1</child>
       <parent>link_0</parent>
@@ -142,8 +265,12 @@
           <lower>-3</lower>
           <upper>3</upper>
         </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
+
     <joint name='joint_A' type='revolute'>
       <child>link_2</child>
       <parent>link_1</parent>
@@ -154,6 +281,9 @@
           <lower>-3</lower>
           <upper>3</upper>
         </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
 
@@ -167,8 +297,12 @@
           <lower>-3</lower>
           <upper>3</upper>
         </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
+
     <joint name='joint_B' type='revolute'>
       <child>link_4</child>
       <parent>link_3</parent>
@@ -179,14 +313,36 @@
           <lower>-3</lower>
           <upper>3</upper>
         </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     
     <!-- create rotatable dummy link at Joint C position on link_4 --> 
     <link name='dummy_link'>
       <pose>0.5 0 -0.5 0 0 0</pose>
-       
-      <visual name='dummy_visual'>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>5.25e-7</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5.25e-7</iyy>
+          <iyz>0</iyz>
+          <izz>4.5e-7</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='collision'>
+        <pose>0 0 0 1.57079633 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.03</radius>
+            <length>0.06</length>
+          </cylinder>
+        </geometry>
+      </collision> -->
+      <visual name='visual'>
         <pose>0 0 0 1.57079633 0 0</pose>
         <geometry>
           <cylinder>
@@ -199,7 +355,42 @@
         </material>
       </visual>
     </link>
-    <joint name='joint_C' type='revolute'> <!-- Connect dummy_link to link_4 -->
+    <!-- <link name='link_2b'>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.021041667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.021041667</iyy>
+          <iyz>0</iyz>
+          <izz>0.000416667</izz>
+        </inertia>
+      </inertial>
+      <pose>0.5 0 -0.25 0 0 0</pose>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.5</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.5</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link> -->
+
+    <!-- Connect dummy_link to link_4 -->
+    <joint name='joint_C' type='revolute'>
       <child>dummy_link</child>
       <parent>link_4</parent>
       <pose>0 0 0 0 0 0</pose>
@@ -209,8 +400,26 @@
           <lower>-3</lower>
           <upper>3</upper>
         </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
+    <!-- <joint name='joint_C' type='revolute'>
+      <child>link_2b</child>
+      <parent>link_4</parent>
+      <pose>0 0 -0.25 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3</lower>
+          <upper>3</upper>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+      </axis>
+    </joint> -->
 
     <!-- Create joint to World -->
 
@@ -221,14 +430,19 @@
 
     <!-- Plugin to close the loop -->
 
-    <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint"> <!-- Connect link_2 to link_4 (via dummy_link) -->
+    <!-- Connect link_2 to link_4 (via dummy_link) -->
+    <plugin filename="libgz-sim-detachable-joint-system.so"
+        name="gz::sim::systems::DetachableJoint">
       <parent_link>link_2</parent_link>
-      <child_model>closed_loop_demo_model</child_model>
       <child_link>dummy_link</child_link>
-
+      <child_model>closed_loop_demo_model</child_model>
       <attach_topic>loop/attach</attach_topic>
       <detach_topic>loop/detach</detach_topic>
       <output_topic>loop/state</output_topic>
+      <physics>
+        <cfm>1.0e-6</cfm>
+        <erp>0.8</erp>
+      </physics>
     </plugin>
 
   </model>
